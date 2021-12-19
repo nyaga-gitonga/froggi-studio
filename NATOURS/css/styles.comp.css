@@ -116,12 +116,12 @@ body {
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   -webkit-background-clip: text;
   color: transparent;
-  letter-spacing: 2px;
+  letter-spacing: .2rem;
   transition: all .2s; }
   @media (max-width: 56.25em) {
     .heading-secondary {
       font-size: 3rem; } }
-  @media (max-width: 56.25em) {
+  @media (max-width: 37.5em) {
     .heading-secondary {
       font-size: 2.5rem; } }
   .heading-secondary:hover {
@@ -402,7 +402,7 @@ body {
         .composition__photo--p3 {
           top: 1rem;
           left: 0;
-          transform: dcale(1.1); } }
+          transform: scale(1.1); } }
     .composition__photo:hover {
       outline: 1.5rem solid #55c57a;
       transform: scale(1.05) translateY(-0.5rem);
@@ -440,7 +440,7 @@ body {
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 3px;
+  border-radius: .3rem;
   padding: 6rem;
   padding-left: 9rem;
   font-size: 1.6rem;
@@ -652,13 +652,19 @@ body {
     color: #55c57a; }
 
 .header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  height: 85vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
-  position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  position: relative; }
+  @supports (clip-path: polygon(0, 0)) or (-webkit-clip-path: polygon(0, 0)) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      height: 95vh; } }
+  @media (media-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg"); } }
   @media (max-width: 37.5em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
@@ -942,12 +948,15 @@ body {
     .book {
       background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url(../img/nat-10.jpg);
       background-size: cover; } }
-  @media (max-width: 75em) {
+  @media (max-width: 56.25em) {
     .book {
-      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url(../img/nat-10.jpg); } }
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg); } }
   .book__form {
     width: 50%;
     padding: 6rem; }
     @media (max-width: 75em) {
       .book__form {
         width: 65%; } }
+    @media (max-width: 56.25em) {
+      .book__form {
+        width: 100%; } }
